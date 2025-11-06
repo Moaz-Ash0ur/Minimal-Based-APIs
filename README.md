@@ -24,7 +24,6 @@ All endpoints are grouped inside `ProductEndpoints`, following clean modularizat
 ✅ CSV export using `Results.File()` and `Results.PhysicalFile()`  
 ✅ Temporary & permanent redirects with `Results.Redirect()`  
 ✅ `Accepted (202)` async process simulation  
-✅ Custom middleware for request logging and global error handling  
 ✅ Endpoint grouping via extension methods for maintainability  
 
 ---
@@ -40,22 +39,43 @@ All endpoints are grouped inside `ProductEndpoints`, following clean modularizat
 
 ---
 
-## 📁 Project Structure
+## 🧪 Testing with `.http` Files
+
+The project includes a `.http` file to **simulate and trace HTTP requests** directly from **Visual Studio** or **VS Code**.
+
+You can use it to test endpoints, view responses, and understand how each request flows through the **Minimal API pipeline**.
+
+---
+### 🧾 Example: `products.http`
+
+```http
+### Get paged products
+GET {{baseUrl}}/api/products?page=1&pageSize=5
+Accept: application/json
 
 ---
 
+## 📁 Project Structure
+
+
+```text
 MinimalApiDeepDive/
 │
 ├── Endpoints/
 │   └── ProductEndpoints.cs
 │
+├── Middlewares/
+│   └── ErrorHandlingMiddleware.cs
+│
 ├── Models/
 │   ├── Product.cs
 │   ├── ProductReview.cs
+│   │
 │   ├── Requests/
 │   │   ├── CreateProductRequest.cs
 │   │   ├── UpdateProductRequest.cs
 │   │   └── CreateProductReviewRequest.cs
+│   │
 │   └── Responses/
 │       ├── ProductResponse.cs
 │       ├── ProductReviewResponse.cs
@@ -65,6 +85,4 @@ MinimalApiDeepDive/
 │   └── ProductRepository.cs
 │
 └── Program.cs
-
----
 
