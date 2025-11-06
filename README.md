@@ -46,14 +46,13 @@ The project includes a `.http` file to **simulate and trace HTTP requests** dire
 You can use it to test endpoints, view responses, and understand how each request flows through the **Minimal API pipeline**.
 
 ---
-### 🧾 Example: `products.http`
+### 🧾 Example: `.http`
 
-```http
 ### Get paged products
 GET {{baseUrl}}/api/products?page=1&pageSize=5
-Accept: application/json
 
 ---
+
 
 ## 📁 Project Structure
 
@@ -64,8 +63,6 @@ MinimalApiDeepDive/
 ├── Endpoints/
 │   └── ProductEndpoints.cs
 │
-├── Middlewares/
-│   └── ErrorHandlingMiddleware.cs
 │
 ├── Models/
 │   ├── Product.cs
